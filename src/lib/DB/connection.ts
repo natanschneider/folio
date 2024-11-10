@@ -7,3 +7,8 @@ export const pool = new Pool({
 	password: process.env.PGPASSWORD,
 	port: process.env.PGPORT
 })
+
+export async function basicQuery(query: string){
+	return await pool.query(query)
+      .then(res  => res.rows)
+}
